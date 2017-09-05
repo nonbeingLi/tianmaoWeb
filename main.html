@@ -40,6 +40,7 @@
       color: white;
       text-decoration: none;
     }
+
     .carousel-of-product{
       margin: 0 auto;
       width:1024px;
@@ -56,10 +57,145 @@
       background: #E8E8E8;
       z-index: -1;
     }
+    .categoryMenu{
+    display: none;
+      position: absolute;
+      width: 200px;
+      left: 0;
+      top: 0;
+      background: #e2e2e3;
+      margin-left: 20px;
+      z-index: 1;
+    }
+    .eachCategory{
+      height: 30px;
+      line-height: 30px;
+      font-size: 14px;
+    }
+    .eachCategory:hover{
+      background: white;
+    }
+    .eachCategory span{
+      margin:0 10px;
+    }
+    .categoryMenu a{
+      color: #000;
+    }
+    .categoryMenu a:hover{
+      color: lightskyblue;
+      text-decoration: none;
+    }
+    .productsAsideCategorys{
+      display: none;
+      width:800px;
+      height: 510px;
+      background: white;
+      margin-left: 220px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 1;
+    }
+    .row{
+      margin: 20px 80px 0 80px;
+    }
+    .row a{
+      color: #999;
+      font-size: 14px;
+      margin: 8px;
+    }
+    .row a:hover{
+      color: #C40000;
+      text-decoration: none;
+    }
+    .seperator{
+      margin-top: 20px;
+      border-bottom:1px dashed #e7e7e7;
+    }
+    .homepageCategoryProducts{
+      margin: 10px auto;
+      background: #F5F5F5;
+      max-width: 1013px;
+      padding: 50px 10px;
+    }
+  .eachHomepageCategoryProducts{
+    margin-bottom: 40px;
+  }
+    .left-mark{
+      width: 5px;
+      height: 20px;
+      background: #19C8A9;
+      display: inline-block;
+      vertical-align: top;
+    }
+    .categoryTitle{
+      font-size: 16px;
+      color: #646464;
+      font-weight: bold;
+      margin-left: 30px;
+    }
+  .productItem{
+    width: 189px;
+    height: 285px;
+    float: left;
+    background: white;
+    margin: 8px 4px;
+    border: 1px solid white;
+    cursor: pointer;
+  }
+  .productItem:hover{
+    border: 1px solid darkred;
+  }
+  .productItem img{
+    width: 187px;
+    height: 190px;
+  }
+  .productItem img:hover{
+    opacity: 0.7;
+    filter:alpha(opacity=70);
+  }
+  a.productItemDescLink{
+    display: inline-block;
+    height: 66px;
+    text-decoration:none;
+  }
+  .productItemDesc{
+    font-size: 12px;
+    color: #666;
+    display: block;
+    padding: 16px;
+  }
+  .productPrice{
+    font-size: 16px;
+    color: #FF003A;
+    display: block;
+    padding-left: 16px;
+    margin-top: -10px;
+  }
+  img.endpng{
+    display: block;
+    width: 82px;
+    margin: 0 auto;
+  }
   </style>
+  <script type="text/javascript">
+    var head=document.getElementById("head");
+  </script>
 </head>
 <body>
   <div class="categaryWithCarousel">
+    <div class="headbar">
+      <div class="head">
+        <span class="glyphicon glyphicon-th-list"></span>
+        <span>商品分类</span>
+      </div>
+      <div class="rightMenu">
+        <span><a href="#nowhere"><img src="images/chaoshi.png" alt=""></a></span>
+        <span><a href="#nowhere"><img src="images/guoji.png" alt=""></a></span>
+        <span><a href="#nowhere">平板电视</a></span>
+        <span><a href="#nowhere">电热水器</a></span>
+      </div>
+    </div>
     <div style="position: relative">
       <div class="categoryMenu ">
         <div class="eachCategory" cid="83">
@@ -352,20 +488,6 @@
               <div class="seperator"></div>
           </div>        
         </div>            
-    </div>    
-    <div style="height:510"></div>
-
-    <div class="headbar">
-      <div class="head">
-        <span class="glyphicon glyphicon-th-list"></span>
-        <span>商品分类</span>
-      </div>
-      <div class="rightMenu">
-        <span><a href="#nowhere"><img src="images/chaoshi.png" alt=""></a></span>
-        <span><a href="#nowhere"><img src="images/guoji.png" alt=""></a></span>
-        <span><a href="#nowhere">平板电视</a></span>
-        <span><a href="#nowhere">电热水器</a></span>
-      </div>
     </div>
     <div data-ride="carousel" class="carousel-of-product carousel slide" id="carousel-of-product">
         <!-- Indicators -->
@@ -394,5 +516,70 @@
           </div>
     </div>
     <div class="carouselBackground"></div>
+    <div class="homepageCategoryProducts">
+      <div class="eachHomepageCategoryProducts">
+        <div class="left-mark"></div>
+        <span class="categoryTitle">太阳镜</span>
+        <br>
+        <div class="productItem">
+          <a href="#nowhere"><img src="images/product_middle/9543.jpg" alt=""></a>
+          <a href="#nowhere" class="productItemDescLink"><span class="productItemDesc">[热销]好的不错的一份同款墨镜小孙偏光男士太阳镜</span></a>
+          <span class="productPrice">97.50</span>
+        </div>
+        <div class="productItem">
+          <a href="#nowhere"><img src="images/product_middle/9543.jpg" alt=""></a>
+          <a href="#nowhere" class="productItemDescLink"><span class="productItemDesc">[热销]好的不错的一份同款墨镜小孙偏光男士太阳镜</span></a>
+          <span class="productPrice">97.50</span>
+        </div>
+        <div class="productItem">
+          <a href="#nowhere"><img src="images/product_middle/9543.jpg" alt=""></a>
+          <a href="#nowhere" class="productItemDescLink"><span class="productItemDesc">[热销]好的不错的一份同款墨镜小孙偏光男士太阳镜</span></a>
+          <span class="productPrice">97.50</span>
+        </div>
+        <div class="productItem">
+          <a href="#nowhere"><img src="images/product_middle/9543.jpg" alt=""></a>
+          <a href="#nowhere" class="productItemDescLink"><span class="productItemDesc">[热销]好的不错的一份同款墨镜小孙偏光男士太阳镜</span></a>
+          <span class="productPrice">97.50</span>
+        </div>
+        <div class="productItem">
+          <a href="#nowhere"><img src="images/product_middle/9543.jpg" alt=""></a>
+          <a href="#nowhere" class="productItemDescLink"><span class="productItemDesc">[热销]好的不错的一份同款墨镜小孙偏光男士太阳镜</span></a>
+          <span class="productPrice">97.50</span>
+        </div>
+        <div style="clear: both"></div>
+      </div>
+      <div class="eachHomepageCategoryProducts">
+        <div class="left-mark"></div>
+        <span class="categoryTitle">太阳镜</span>
+        <br>
+        <div class="productItem">
+          <a href="#nowhere"><img src="images/product_middle/10192.jpg" alt=""></a>
+          <a href="#nowhere" class="productItemDescLink"><span class="productItemDesc">[热销]新生儿婴儿提篮式安全座椅汽车用车载儿童安</span></a>
+          <span class="productPrice">227.00</span>
+        </div>
+        <div class="productItem">
+          <a href="#nowhere"><img src="images/product_middle/10192.jpg" alt=""></a>
+          <a href="#nowhere" class="productItemDescLink"><span class="productItemDesc">[热销]新生儿婴儿提篮式安全座椅汽车用车载儿童安</span></a>
+          <span class="productPrice">227.00</span>
+        </div>
+        <div class="productItem">
+          <a href="#nowhere"><img src="images/product_middle/10192.jpg" alt=""></a>
+          <a href="#nowhere" class="productItemDescLink"><span class="productItemDesc">[热销]新生儿婴儿提篮式安全座椅汽车用车载儿童安</span></a>
+          <span class="productPrice">227.00</span>
+        </div>
+        <div class="productItem">
+          <a href="#nowhere"><img src="images/product_middle/10192.jpg" alt=""></a>
+          <a href="#nowhere" class="productItemDescLink"><span class="productItemDesc">[热销]新生儿婴儿提篮式安全座椅汽车用车载儿童安</span></a>
+          <span class="productPrice">227.00</span>
+        </div>
+        <div class="productItem">
+          <a href="#nowhere"><img src="images/product_middle/10192.jpg" alt=""></a>
+          <a href="#nowhere" class="productItemDescLink"><span class="productItemDesc">[热销]新生儿婴儿提篮式安全座椅汽车用车载儿童安</span></a>
+          <span class="productPrice">227.00</span>
+        </div>
+        <div style="clear: both"></div>
+      </div>
+      <img src="images/end.png" class="endpng" alt="">
+    </div>
   </div>
 </body>
