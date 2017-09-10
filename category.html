@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<head>
+  <script src="js/jquery-3.2.0.min.js"></script>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <script src="js/bootstrap.min.js"></script>
+  <meta charset="utf-8">
+  <style type="text/css">
+  	body{
+  		font-size: 12px;
+  		font-family: Arial;
+  	}
+  	.categoryPageDiv{
+  		max-width: 1013px;
+  		margin: 0 auto;
+  	}
+  	.categorySortBar{
+  		background: #FAF9F9;
+  		margin: 20px;
+  		padding: 4px;
+  	}
+  	.categorySortBarTable{
+  		border-collapse: collapse;
+  		display: inline-block;
+  	}
+  	.categorySortBarTable a{
+  		color: #888
+  	}
+  	.categorySortBarTable span.glyphicon{
+  		font-size: 10px;
+  	}
+  	.categorySortBarTable td{
+  		height: 17px;
+  		font-size: 12px;
+  		border: 1px solid #CCC;
+  		padding: 3px;
+  	}
+  	.categorySortBarTable td.grayColumn{
+  		background: #F1EDEC;
+  	}
+  	.categorySortBarTable a:hover{
+  		color: #C40000;
+  		text-decoration: none;
+  	}
+  	.categorySortBarTable input{
+  		border-width: 0;
+  		outline: none;
+  		height: 17px;
+  		width: 50px;
+  	}
+  	.priceMiddleColumn{
+  		width: 5px;
+  		vertical-align: middle;
+  		color: #CCC;
+  	}
+  	.categorySortTable td:hover{
+  		background: #F1EDEC;
+  	}
+  	/* 产品 */
+  	.categoryProducts{
+		padding: 0 20px 40px 20px;
+  	}
+  	.productUnit{
+  		width:225px;
+  		height: 338px;
+  		float: left;
+  		background: white;
+  		border: 3px solid white;
+  		margin: 12px 5px;
+  	}
+  	.productUnit:hover{
+		border: 3px solid #C40000;
+  	}
+  	.productUnitFram{
+  		border: 1px solid #eee;
+  		height: 100%;
+  	}
+  	.productUnitFram:hover{
+  		border: 1px solid #C40000;
+  	}
+  	.productPrice{
+  		font-size: 20px;
+  		color: #CC0000;
+  		display: block;
+  		padding-left: 4px;
+  	}
+  	.productLink{
+  		display: block;
+  		height: 34px;
+  		margin: 10px 0px;
+  		color: #333;
+  	}
+  	.productLink:hover{
+  		color: #C40000;
+		text-decoration: underline;
+  	}
+  	.tmllLink{
+  		text-decoration: underline;
+  		color: #999;
+  		margin: 10px 0;
+  		display: block;
+  	}
+  	.tmllLink:hover{
+  		color: #CC0000;
+  	}
+  	.productInfo{
+  		border-top: 1px solid #EEE;
+  		color: #999;
+  	}
+  	.productDealNumber{
+  		font-weight: bold;
+  		color: #B57C5B;
+  	}
+  	.productReviewNumber{
+  		font-weight: bold;
+  		color: #38B;
+  	}
+  	.productReview{
+  		border-left: 1px solid #EEE;
+  		border-right: 1px solid #EEE;
+  	}
+	.monthDeal,.productReview{
+		display: inline-block;
+		width: 90px;
+		height: 30px;
+		padding-top: 5px;
+		padding-left: 5px;
+	}
+	.wangwang{
+		padding-left: 4px;
+	}
+  </style>
+  <script>
+  	$(function  () {
+  		$("input.sortBarPrice").keyup(function(){
+  			// 如果没有输入 商品照常显示，返回
+  			var num=$(this).val();
+  			if(num.length==0){
+  				$("div.productUnit").show();
+  				return;
+  			}
+  			//如果有输入
+  			num=parseInt(num);
+  			if(isNaN(num)||num<=0) num=1;
+  			$(this).val(num);
+  			//如果价格都存在
+  			var begin=$("input.beginPrice").val();
+  			var end=$("input.endPrice").val();
+  			if(!isNaN(begin)&&!isNaN(end)){
+  				//把所有产品隐藏
+  				$("div.productUnit").hide();
+  				$("div.productUnit").each(function(){
+  					var price=$(this).attr("price");
+  					price=new Number(price);
+  					if(begin<=price&&price<=end){
+  						$(this).show();
+  					}
+  				});
+  			}
+  		});
+  	});
+  </script>
+ </head>
+ <body>
+ 	<div class="categoryPageDiv">
+ 		<img src="images/category/72.jpg" alt="广告图片">
+ 		<div class="categorySortBar">
+ 			<table class="categorySortBarTable categorySortTable">
+ 				<tr>
+ 					<td class="grayColumn"><a href="#nowhere">综合<span class="glyphicon glyphicon-arrow-down"></span></a></td>
+ 					<td><a href="#nowhere">人气<span class="glyphicon glyphicon-arrow-down"></span></a></td>
+ 					<td><a href="#nowhere">新品<span class="glyphicon glyphicon-arrow-down"></span></a></td>
+ 					<td><a href="#nowhere">销售<span class="glyphicon glyphicon-arrow-down"></span></a></td>
+ 					<td><a href="#nowhere">价格<span class="glyphicon glyphicon-resize-vertical"></span></a></td>
+ 				</tr>
+ 			</table>
+ 			<table class="categorySortBarTable">
+ 				<tr>
+ 					<td>
+ 						<input type="text" placeholder="请输入" class="sortBarPrice beginPrice">
+ 					</td>
+ 					<td class="grayColumn priceMiddleColumn">-</td>
+ 					<td>
+ 						<input type="text" placeholder="请输入" class="sortBarPrice endPrice">
+ 					</td>
+ 				</tr>
+
+ 			</table>
+ 		</div>
+
+ 		<div class="categoryProducts">
+ 			<div price="233.4"  class="productUnit">
+ 				<div class="productUnitFram">
+ 					<a href="#nowhere"><img src="images/product/6981.jpg" alt=""></a>
+ 					<span class="productPrice">¥233.40</span>
+ 					<a href="#nowhere" class="productLink">
+				 		MAXFEEL休闲男士手包真皮手拿包大容量信封包手抓包夹包软韩版潮
+					</a>
+					<a href="#nowhere" class="tmllLink">天猫专卖</a>
+					<div class="productInfo">
+						<span class="monthDeal">月成交
+							<span class="productDealNumber">16笔</span>
+						</span>
+						<span class="productReview">评价
+							<span class="productReviewNumber">14</span>
+						</span>
+						<span class="wangwang"><a href="#nowhere"><img src="images/product/wangwang.png" alt=""></a></span>
+					</div>
+ 				</div>
+ 			</div>
+ 			<div price="233.4" class="productUnit">
+ 				<div class="productUnitFram">
+ 					<a href="#nowhere"><img src="images/product/6981.jpg" alt=""></a>
+ 					<span class="productPrice">¥233.40</span>
+ 					<a href="#nowhere" class="productLink">
+				 		MAXFEEL休闲男士手包真皮手拿包大容量信封包手抓包夹包软韩版潮
+					</a>
+					<a href="#nowhere" class="tmllLink">天猫专卖</a>
+					<div class="productInfo">
+						<span class="monthDeal">月成交
+							<span class="productDealNumber">16笔</span>
+						</span>
+						<span class="productReview">评价
+							<span class="productReviewNumber">14</span>
+						</span>
+						<span class="wangwang"><a href="#nowhere"><img src="images/product/wangwang.png" alt=""></a></span>
+					</div>
+ 				</div>
+ 			</div>
+ 			<div price="233.4" class="productUnit">
+ 				<div class="productUnitFram">
+ 					<a href="#nowhere"><img src="images/product/6981.jpg" alt=""></a>
+ 					<span class="productPrice">¥233.40</span>
+ 					<a href="#nowhere" class="productLink">
+				 		MAXFEEL休闲男士手包真皮手拿包大容量信封包手抓包夹包软韩版潮
+					</a>
+					<a href="#nowhere" class="tmllLink">天猫专卖</a>
+					<div class="productInfo">
+						<span class="monthDeal">月成交
+							<span class="productDealNumber">16笔</span>
+						</span>
+						<span class="productReview">评价
+							<span class="productReviewNumber">14</span>
+						</span>
+						<span class="wangwang"><a href="#nowhere"><img src="images/product/wangwang.png" alt=""></a></span>
+					</div>
+ 				</div>
+ 			</div>
+ 			<div price="233.4" class="productUnit">
+ 				<div class="productUnitFram">
+ 					<a href="#nowhere"><img src="images/product/6981.jpg" alt=""></a>
+ 					<span class="productPrice">¥233.40</span>
+ 					<a href="#nowhere" class="productLink">
+				 		MAXFEEL休闲男士手包真皮手拿包大容量信封包手抓包夹包软韩版潮
+					</a>
+					<a href="#nowhere" class="tmllLink">天猫专卖</a>
+					<div class="productInfo">
+						<span class="monthDeal">月成交
+							<span class="productDealNumber">16笔</span>
+						</span>
+						<span class="productReview">评价
+							<span class="productReviewNumber">14</span>
+						</span>
+						<span class="wangwang"><a href="#nowhere"><img src="images/product/wangwang.png" alt=""></a></span>
+					</div>
+ 				</div>
+ 			</div>
+ 			<div price="134.2" class="productUnit">
+ 				<div class="productUnitFram">
+ 					<a href="#nowhere"><img src="images/product/6992.jpg" alt=""></a>
+ 					<span class="productPrice">¥134.20</span>
+ 					<a href="#nowhere" class="productLink">
+				 		指示石家庄的一个封存水的房间的地方过来看好包！真的好包！来来看看
+					</a>
+					<a href="#nowhere" class="tmllLink">天猫专卖</a>
+					<div class="productInfo">
+						<span class="monthDeal">月成交
+							<span class="productDealNumber">16笔</span>
+						</span>
+						<span class="productReview">评价
+							<span class="productReviewNumber">14</span>
+						</span>
+						<span class="wangwang"><a href="#nowhere"><img src="images/product/wangwang.png" alt=""></a></span>
+					</div>
+ 				</div>
+ 			</div>
+ 			<div price="134.2" class="productUnit">
+ 				<div class="productUnitFram">
+ 					<a href="#nowhere"><img src="images/product/6992.jpg" alt=""></a>
+ 					<span class="productPrice">¥134.20</span>
+ 					<a href="#nowhere" class="productLink">
+				 		指示石家庄的一个封存水的房间的地方过来看好包！真的好包！来来看看
+					</a>
+					<a href="#nowhere" class="tmllLink">天猫专卖</a>
+					<div class="productInfo">
+						<span class="monthDeal">月成交
+							<span class="productDealNumber">16笔</span>
+						</span>
+						<span class="productReview">评价
+							<span class="productReviewNumber">14</span>
+						</span>
+						<span class="wangwang"><a href="#nowhere"><img src="images/product/wangwang.png" alt=""></a></span>
+					</div>
+ 				</div>
+ 			</div>
+ 			<div price="134.2" class="productUnit">
+ 				<div class="productUnitFram">
+ 					<a href="#nowhere"><img src="images/product/6992.jpg" alt=""></a>
+ 					<span class="productPrice">¥134.20</span>
+ 					<a href="#nowhere" class="productLink">
+				 		指示石家庄的一个封存水的房间的地方过来看好包！真的好包！来来看看
+					</a>
+					<a href="#nowhere" class="tmllLink">天猫专卖</a>
+					<div class="productInfo">
+						<span class="monthDeal">月成交
+							<span class="productDealNumber">16笔</span>
+						</span>
+						<span class="productReview">评价
+							<span class="productReviewNumber">14</span>
+						</span>
+						<span class="wangwang"><a href="#nowhere"><img src="images/product/wangwang.png" alt=""></a></span>
+					</div>
+ 				</div>
+ 			</div>
+ 			<div price="134.2" class="productUnit">
+ 				<div class="productUnitFram">
+ 					<a href="#nowhere"><img src="images/product/6992.jpg" alt=""></a>
+ 					<span class="productPrice">¥134.20</span>
+ 					<a href="#nowhere" class="productLink">
+				 		指示石家庄的一个封存水的房间的地方过来看好包！真的好包！来来看看
+					</a>
+					<a href="#nowhere" class="tmllLink">天猫专卖</a>
+					<div class="productInfo">
+						<span class="monthDeal">月成交
+							<span class="productDealNumber">16笔</span>
+						</span>
+						<span class="productReview">评价
+							<span class="productReviewNumber">14</span>
+						</span>
+						<span class="wangwang"><a href="#nowhere"><img src="images/product/wangwang.png" alt=""></a></span>
+					</div>
+ 				</div>
+ 			</div>
+ 		</div>
+ 	</div>
+ </body>
