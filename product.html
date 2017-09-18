@@ -5,6 +5,7 @@
   <script src="js/bootstrap.min.js"></script>
   <meta charset="utf-8">
   <style type="text/css">
+
   	body{
   		font-size: 12px;
   		font-family: Arial;
@@ -33,6 +34,172 @@
 	}
 	.smallImg:hover{
 		border: 2px solid #434343;
+	}
+	.infInimgAndInf{
+		padding: 0px 20px;
+		overflow: hidden;
+	}
+	.productTitle{
+		font-size: 16px;
+		font-weight: bold;
+		color: black;
+		margin: 0 10px;
+	}
+	.productSubTitle{
+		color: #DD2727;
+		font-size: 12px;
+		margin: 0 10px;
+	}
+	.juhuasuan{
+		margin-top: 10px;
+		height: 40px;
+		background: #2DA77A;
+		color: white;
+		line-height: 40px;
+		text-align: center;
+	}
+	.juhuasuanBig{
+		font-size: 18px;
+		font-weight: bold;
+		font-family: 黑体;
+	}
+	.juhuasuanTime{
+		color: #FFC057;
+		font-weight: bold;
+	}
+	.productPriceDiv{
+		background: url("images/product_small/priceBackground.png");
+		height: 102px;
+		padding: 10px;
+		color: #666;
+	}
+	.gouwujuanDiv,.originalDiv{
+		margin-top: 5px;
+	}
+	.gouwujuanDiv img{
+		height: 16px;
+	}
+	.originalPriceDesc{
+		color: #999;
+		display: inline-block;
+		width: 68px;
+	}
+	.originalPrice{
+		font-size: 12px;
+		color: #333;
+		text-decoration: line-through;
+	}
+	.promotionPrice{
+		font-size: 30px;
+		color: #c40000;
+		font-weight: bold;
+	}
+	.promotionPriceYuan{
+		font-family: Arial;
+		font-size: 18px;
+		color: #c40000;
+		font-weight: bold;
+	}
+	.promotionDesc{
+		color: #999;
+		display: inline-block;
+		width: 68px;
+		position: relative;
+		left: 0;
+		top: -10px;
+	}
+	.productSaleAndReviewNumber{
+		margin: 20px 0;
+		border-top: 1px dotted #C9C9C9;
+		border-bottom: 1px dotted #C9C9C9;
+		padding: 10px;
+	}
+	.productSaleAndReviewNumber div{
+		display: inline-block;
+		color: #999;
+		text-align: center;
+		width: 49%;
+	}
+	.productSaleAndReviewNumber div:first-child{
+		border-right: 1px solid #C9C9C9;
+	}
+	.productSaleAndReviewNumber .redColor{
+		color: #C40000;
+		font-weight: bold;
+	}
+	.productNumber{
+		color: #999;
+		margin: 10px 0;
+	}
+	.productNumberSettingSpan{
+		display: inline-block;
+		width: 40px;
+		height: 32px;
+		border: 1px solid #999;
+		padding: 6px;
+	}
+	.productNumberSetting{
+		border: none;
+		outline: none;
+		width: 29px;
+	}
+
+	span .glyphicon{
+		font-size: 6px;
+		color: #999;
+	}
+	
+	.updown{
+		display: block;
+	    border: 1px solid #999;
+	    width: 20px;
+	    height: 14px;
+	    text-align: center;
+	}
+	.updownMiddle{
+		display: block;
+		height: 4px;
+	}
+	.arrow{
+		display: inline-block;
+		width: 22px;
+		height: 32px;
+		position: relative;
+		top: 10px;
+	}
+	.serviceCommitment{
+		margin: 10px 0;
+	}
+	.serviceCommitmentDesc{
+		color: #999;
+	}
+	span.serviceCommitmentLink a{
+		color:#333;
+	}
+	.buyDiv{
+		text-align: center;
+		margin: 20px auto;
+	}
+	.buyButton{
+		background: #FFEDED;
+		border: 1px solid #c40000;
+		width: 180px;
+		height: 40px;
+		font-size: 16px;
+		color: #c40000;
+		margin-right: 10px;
+	}
+	.addCartButton{
+		background: #c40000;
+		border: 1px solid #c40000;
+		width: 180px;
+		height: 40px;
+		font-size: 16px;
+		color: #fff;
+	}
+	.addCartButton .glyphicon{
+		color: white;
+		padding-right: 5px;
 	}
   </style>
  </head>
@@ -64,7 +231,7 @@
 						<span class="originalPriceDesc">价格</span>
 						<span class="originalPriceYuan">¥</span>
 						<span class="originalPrice">
-							399.00					
+							399.00
 						</span>
 					</div>
 					<div class="promotionDiv">
@@ -82,9 +249,9 @@
  				<span>数量
 	 				<span class="productNumberSettingSpan"><input type="text" value="1" class="productNumberSetting"></span>
 	 				<span class="arrow">
-	 					<a class="increaseNumber"><span class="updown"><img src="images/product_small/increase.png" alt=""></span></a>
+	 					<a href="#nowhere" class="increaseNumber"><span class="updown"><span class="glyphicon glyphicon-arrow-up"></span></span></a>
 	 					<span class="updownMiddle"></span>
-	 					<a class="decreaseNumber"><span class="updown"><img src="images/product_small/decrease.png" alt=""></span></a>
+	 					<a href="#nowhere" class="decreaseNumber"><span class="updown"><span class="glyphicon glyphicon-arrow-down"></span></a>
 	 				</span>
  				件
  				</span>
